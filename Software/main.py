@@ -17,7 +17,8 @@ async def main():
     ws_manager = WebSocketManager(url)
     try:
         await ws_manager.connect()
-        await request(home(), ws_manager.websocket)
+        liq = ws_manager.websocket
+        await request(home(), liq)
 
 
     except Exception as e:
