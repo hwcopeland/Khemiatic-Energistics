@@ -23,8 +23,7 @@ steps = [
             "catalyst": "Thiamine",
             "solvent": "Ethanol",
             "base": "NaOH",
-            "temperature": "Room temperature",
-            "duration": "24 hours",
+            "duration": "1 hours",
             "state": "Anhydrous"
         },
         time="24 hours",
@@ -32,9 +31,9 @@ steps = [
             ProcedureStep(timestamp=0, action="select", parameters={"vial": "1"}),
             ProcedureStep(timestamp=0, action="add", parameters={"vial": "123", "vol": "1", "rate": "1"}),
             ProcedureStep(timestamp=5, action="add", parameters={"vial": "456", "vol": "1", "rate": "1"}),
-            ProcedureStep(timestamp=10, action="temp", parameters={"vial": "789", "val": "1", "rate": "1"}),
+            ProcedureStep(timestamp=10, action="temp", parameters={"vial": "789", "val": "100", "rate": "1"}),
             ProcedureStep(timestamp=10, action="add", parameters={"vial": "777", "vol": "1" ,"rate": "1"}),
-            ProcedureStep(timestamp=15, action="seal", parameters={"method": "Parafilm", "storage": "room temperature"})
+            ProcedureStep(timestamp=60, action="seal", parameters={"vail": "1", "storage": "flash_queue"})
         ]
     )
 ]

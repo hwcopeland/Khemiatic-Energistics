@@ -93,6 +93,6 @@ For any inquiries or support, please contact us at:
 
 - Email: Hwc2e@mtmail.mtsu.edu
 - GitHub: [hwcopeland/khemiatic-energistics](https://github.com/hwcopeland/khemiatic-energistics)
-- Website: info.hwcopeland.net
+- Website: http://info.hwcopeland.net 
 
 Join us in revolutionizing the way we understand and utilize matter, energy, and intelligence to create a new era of technological innovation.

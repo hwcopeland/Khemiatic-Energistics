@@ -8,7 +8,7 @@ Structure:
 - Calibration Assests
 
 
-Container stack?::
+Container stack?:
 - deploy main as the overarching controller
 - agents spooled up in containers
 - database for vials?
