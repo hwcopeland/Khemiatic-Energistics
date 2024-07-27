@@ -1,10 +1,11 @@
 import requests
+from requestlib import *
 from typing import Dict, Any
 
 ## Worker.py -- 
 # the worker is responsible for executing the actions defined in the workflow
 # this level of abstraction is where the structured procedure steps are mapped to the actual actions
-# these actions are defined as functions, each corrisponding to a unique action. 
+# these actions are defined as functions, each corrisponding to a unique set of gcode to issue to the robot. 
 # these will not be the final translation of the action and will rely on mapped gcode and macro calls outlined
 # in the requestlib.py file.
 
@@ -30,17 +31,32 @@ def filter(vial: str, vol: float, solvent: int):
 def seal(vial: float, state: bool):
     return call_api("seal", {"vial": vial, "state": state})
 
-def move(vial: str, location: str):
-    return call_api("move", {"vial": vial, "location": location})
+# def move(vial: str, location: str):
+    
+#     return call_api("move", {"vial": vial, "location": location})
+
+def movecoord(x=None, y=None, z=None, e=None, f=None, s=None, i=None, j=None, k=None, r=None, p=None):
+    params = []
+    if x is not None:
+        params.append(f"X{x}")
+    if y is not None:
+        params.append(f"Y{y}")
+    if z is not None:
+        params.append(f"Z{z}")
+    if f is not None:
+        params.append(f"F{f}")
+    script = "G1 " + " ".join(params)
+    return gcode(script)
 
 # Map action strings to functions
 action_map = {
     "solv": solv,
-    "add": add,
+    "inject": inject,
+    "draw": draw,
     "temp": temp,
     "filter": filter,
     "seal": seal,
-    "move": move
+    "movecoord": movecoord
 }
 
 ## workflow.py should be brought in here and the steps should be iterated over with the actions being called. we should define this in the main as a worker.start({workflow})
